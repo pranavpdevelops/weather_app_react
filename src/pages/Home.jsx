@@ -50,14 +50,9 @@ const Home = () => {
               type="text"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  getWeather()
-                }
-              }}
+            
               placeholder="Search city..."
-              className="flex-1 bg-transparent text-white placeholder-white/70 px-4 py-3 outline-none text-lg"
-            />
+              className="flex-1 bg-transparent text-white placeholder-white/70 px-4 py-3 outline-none text-lg"/>
 
             <button
               onClick={getWeather}
@@ -71,17 +66,13 @@ const Home = () => {
         </div>
         {loading && (
           <div className="text-center mt-8">
-
             <div className="inline-block w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
 
             <p className="text-white mt-3">
               Getting weather...
             </p>
-
           </div>
         )}
-
-        {/* Weather */}
         {weather && (
           <Weather weather={weather} />
         )}
