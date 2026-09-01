@@ -20,7 +20,6 @@ const Home = () => {
 
             const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
             const data = await res.json()
-
             setWeather(data)
 
         } catch (error) {

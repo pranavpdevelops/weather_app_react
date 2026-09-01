@@ -3,8 +3,7 @@ function Weather({ weather }) {
   const icon = weather.weather[0].icon;
 
   const iconUrl =
-    // `https://openweathermap.org/img/wn/${icon}@4x.png`
-    `https://cdn.jsdelivr.net/gh/basmilius/weather-icons@master/production/fill/svg/partly-cloudy-day.svg`
+    `https://openweathermap.org/img/wn/${icon}@4x.png`
   return (
     <div className="mt-10">
 
