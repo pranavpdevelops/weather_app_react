@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import Weather from '../components/weather'
 
 const Home = () => {
    const [city,setCity]=useState("")
-    const[weather,setWeather]=(null)
+    const[weather,setWeather]=useState
+    (null)
     const [loading, setLoading] = useState(false)
    
     const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
@@ -17,7 +19,7 @@ const Home = () => {
             setLoading(true)
 
             const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
-            const data = await res.json
+            const data = await res.json()
 
             setWeather(data)
 
@@ -46,7 +48,7 @@ const Home = () => {
       {loading && <p>Loading...</p>}
 
       {weather && (
-        <eather weather={weather} />
+        <Weather weather={weather} />
       )}
 
     </div>
