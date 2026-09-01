@@ -12,7 +12,7 @@ const Home = () => {
     const getWeather = async()=>{
         if(!city.trim()){
             alert("please enter the city")
-            return
+            return;
         }
 
         try {
