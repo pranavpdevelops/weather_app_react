@@ -43,27 +43,32 @@ const Home = () => {
           </p>
 
         </div>
-  <div className="max-w-xl mx-auto">
+<form
+  onSubmit={(e) => {
+    e.preventDefault();
+    getWeather();
+  }}
+  className="max-w-xl mx-auto"
+>
   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 bg-white/20 backdrop-blur-xl border border-white/30 p-2 rounded-2xl shadow-2xl">
 
     <input
       type="text"
       value={city}
       onChange={(e) => setCity(e.target.value)}
-      onKeyDown={(e) => e.key === "Enter" && getWeather()}
       placeholder="Search city..."
       className="flex-1 bg-transparent text-white placeholder-white/70 px-4 py-3 outline-none text-lg"
     />
 
     <button
-      onClick={getWeather}
+      type="submit"
       className="w-full sm:w-auto bg-white text-blue-600 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 active:scale-95 transition duration-200"
     >
       Search
     </button>
 
   </div>
-</div>
+</form>
         {loading && (
           <div className="text-center mt-8">
             <div className="inline-block w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
