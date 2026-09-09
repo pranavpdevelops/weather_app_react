@@ -1,6 +1,6 @@
 function Weather({ weather }) {
 
-  const icon = weather.weather[0].icon
+  const icon = weather?.weather[0].icon
 
   const iconUrl =
     `https://openweathermap.org/img/wn/${icon}@4x.png`
@@ -115,4 +115,4 @@ function Weather({ weather }) {
   );
 }
 
-export default Weather;
+export default Weather

@@ -20,6 +20,8 @@ const Home = () => {
 
             const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
             const data = await res.json()
+
+  
             setWeather(data)
 
         } catch (error) {
@@ -41,28 +43,27 @@ const Home = () => {
           </p>
 
         </div>
-        <div className="max-w-xl mx-auto">
+  <div className="max-w-xl mx-auto">
+  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 bg-white/20 backdrop-blur-xl border border-white/30 p-2 rounded-2xl shadow-2xl">
 
-          <div className="flex items-center gap-3 bg-white/20 backdrop-blur-xl border border-white/30 p-2 rounded-2xl shadow-2xl">
+    <input
+      type="text"
+      value={city}
+      onChange={(e) => setCity(e.target.value)}
+      onKeyDown={(e) => e.key === "Enter" && getWeather()}
+      placeholder="Search city..."
+      className="flex-1 bg-transparent text-white placeholder-white/70 px-4 py-3 outline-none text-lg"
+    />
 
-            <input
-              type="text"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-            
-              placeholder="Search city..."
-              className="flex-1 bg-transparent text-white placeholder-white/70 px-4 py-3 outline-none text-lg"/>
+    <button
+      onClick={getWeather}
+      className="w-full sm:w-auto bg-white text-blue-600 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 active:scale-95 transition duration-200"
+    >
+      Search
+    </button>
 
-            <button
-              onClick={getWeather}
-              className="bg-white text-blue-600 font-bold px-6 py-3 rounded-xl hover:bg-blue-50 active:scale-95 transition duration-200"
-            >
-              Search
-            </button>
-
-          </div>
-
-        </div>
+  </div>
+</div>
         {loading && (
           <div className="text-center mt-8">
             <div className="inline-block w-10 h-10 border-4 border-white/30 border-t-white rounded-full animate-spin"></div>
